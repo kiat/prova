@@ -15,7 +15,7 @@ public class ProvaRunnerExample {
 		// Increase log level
 		log.setLevel(Level.OFF);
 		
-		final String rulebase = "rules/reloaded/expr001.prova";
+		final String rulebase = "rules/reloaded/or_common_interest.prova";
 		
 		try {
 			ProvaCommunicatorImpl comm = new ProvaCommunicatorImpl(kAgent,kPort,rulebase,ProvaCommunicatorImpl.SYNC,null);
