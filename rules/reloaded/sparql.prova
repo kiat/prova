@@ -37,5 +37,5 @@ testSparqlAsk(URL, Predicate, URL2) :-
           $s $p $o .
         }
    ',
-   sparql_select(QueryString, 1, [s(URL), p(Predicate), o(URL2) ], "http://dbpedia.org/sparql"),
-   sparql_results(1, Results). 
+   sparql_select(QueryString, ID, [s(URL), p(Predicate), o(URL2) ], "http://dbpedia.org/sparql"),
+   sparql_results(ID, Results). 
