@@ -32,8 +32,7 @@ testSparqlEPAndReplacement(Predicate, Object, URL) :-
    
 testSparqlAsk(URL, Predicate, URL2) :-
    QueryString = '
-     ASK
-       WHERE {
+     ASK{
           $s $p $o .
         }
    ',
