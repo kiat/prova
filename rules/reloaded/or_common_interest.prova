@@ -14,19 +14,18 @@ server() :-
 server_1(XID,{id->ID1,url->URL1, pos-> POS1},HisInterests,HerInterests) :-
 	% Admittedly, using a reaction group here is an overkill but it allows easier extension to more interesting event combinations.
 	% size(1,1) allows for multiple patterns to be emitted for each earlier event passed here as second parameter.
-	@group(g1) @size(1,1) 
+	@group(g1) @size(1,1)
 	rcvMsg(XID, async, From, inform, {id->ID2,url->URL2, pos-> POS2}) [ID1<ID2, interesting(URL1, URL2, HisInterests, HerInterests), POS1=POS2].
  server_1(XID,E1,HisInterests,HerInterests):-
-	@or(g1) @timeout(9)
+	@or(g1)
 	rcvMsg(XID,Protocol,From,or,Events),
-	println(["Pattern detected: ", E1, " ", Events]).	
+	println(["Pattern detected: ", E1, " ", Events]).
 
 loadHisInterests(Agent):-
 	Agent=['Pink_Floyd', 'The_Framework', 'The_Rocky_Horror_Picture_Show'].
 
 loadHerInterests(Agent):-
 	Agent=['Procol_Harum', 'Deep_Purple'].
-
    
     
 % Event Generator Client 
